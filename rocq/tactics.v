@@ -31,14 +31,3 @@ Ltac bdestruct X :=
                     | destruct H as [H|H];
                       [ | try first [apply not_lt in H | apply not_le in H] ] ].
                     
-Definition obind {A B : Type} (oa : option A) (f : A -> option B) : option B :=
-  match oa with
-  | Some a => f a
-  | None => None
-  end.
-
-Notation "x >>= f" := (obind x f) 
-  (at level 50, left associativity).
-
-Notation "'do' x <- a ; b" := (obind a (fun x => b))
-  (at level 60, right associativity).

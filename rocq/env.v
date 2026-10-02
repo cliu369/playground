@@ -7,7 +7,7 @@ From Stdlib Require Import Psatz. (* for lia *)
 Require Import Stdlib.Arith.Compare_dec.
 Import ListNotations.
 
-Require Import Tactics.
+Require Import tactics.
 
 (* Theory of envs as lists of deBruijn levels *)
 

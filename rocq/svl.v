@@ -12,8 +12,9 @@ From Stdlib Require Import Lia.
 From Stdlib Require Import List. Import ListNotations.
 From Stdlib Require Import Strings.String.
 
-Require Import Maps.
-Require Import Tactics.
+Require Import maps.
+Require Import tactics.
+Require Import helper.
 
 Module SVL.
 

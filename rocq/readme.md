@@ -4,7 +4,7 @@ To generate/update the `RocqMakefile` from `_RocqProject`:
 
 `rocq makefile -f _RocqProject -o RocqMakefile`
 
-Then, to compile/check all proof scripts listed in `_RocqProject_`:
+Then, to compile/check all proof scripts listed in `_RocqProject`:
 
 `make -f RocqMakefile all`
 
@@ -16,5 +16,5 @@ Compatibility tested with Rocq `9.10.0`.
 
 ## Contents
 
-- SVL for gradual verification : [SVL.v](SVL.v)
-- GVL for gradual verification : [GVL.v](GVL.v)
+- SVL for gradual verification : [svl.v](svl.v)
+- GVL for gradual verification : [gvl.v](gvl.v)
