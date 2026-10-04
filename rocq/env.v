@@ -301,7 +301,7 @@ Proof.
 Qed.   
 
 Lemma indexl_left : forall A (l1: list A) l2 l3 i, 
-  length l1 > i -> 
+  i < length l1 -> 
   indexl i (l1 ++ l3) = indexl (i) (l1 ++ l2 ++ l3).
 Proof.
   intros A l1. induction l1; intros l2 l3 i HL.
@@ -309,3 +309,14 @@ Proof.
   - destruct i. auto. simpl in *. apply le_S_n in HL.
     apply IHl1. apply HL.
 Qed.   
+
+Lemma indexl_remove_above : forall A (l1 l2 : list A) y i,
+  length l1 < i ->
+  indexl (pred i) (l1 ++ l2) = indexl i (l1 ++ [y] ++ l2).
+Proof.
+  intros A. induction l1; intros l2 y i HI.
+  - destruct i; simpl in *; try lia. reflexivity.
+  - destruct i; simpl in *; try lia.
+    destruct i. simpl in *; try lia.
+    apply (IHl1 l2 y (S i)). lia.     
+Qed.
