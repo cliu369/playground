@@ -266,6 +266,13 @@ Proof.
     auto.
 Qed.
 
+Lemma indexl_skips_r : forall {A} {l l' : list A} {i},
+  i >= length l -> indexl i (l ++ l') = indexl (i - length l) l'.
+Proof.
+  induction l; intros. simpl. 
+  - replace (i - 0) with i by lia. reflexivity.
+  - simpl. 
+
 Lemma indexl_extend : forall A l l' (i: nat) (v: A),
   indexl i l = Some v -> indexl i (l ++ l') = Some v.
 Proof.
