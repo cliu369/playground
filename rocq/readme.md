@@ -13,8 +13,3 @@ To remove generated files, run:
 `make -f RocqMakefile cleanall`
 
 Compatibility tested with Rocq `9.10.0`.
-
-## Contents
-
-- SVL for gradual verification : [svl.v](svl.v)
-- GVL for gradual verification : [gvl.v](gvl.v)

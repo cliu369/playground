@@ -12,6 +12,7 @@ From Stdlib Require Import EqNat. Import Nat.
 From Stdlib Require Import Lia.
 From Stdlib Require Import List. Import ListNotations.
 From Stdlib Require Import Strings.String.
+From Stdlib Require Import Classes.EquivDec.
 
 Require Import maps.
 Require Import tactics.
@@ -19,7 +20,9 @@ Require Import helper.
 
 Module GVL. 
 
-Definition state := partial_map nat. 
+Instance string_eqdec : EqDec string Logic.eq := string_dec.
+
+Definition state := partial_map string nat. 
 
 Inductive aexp : Type :=
   | ANum (n : nat)
@@ -230,7 +233,7 @@ Definition SBinop {X Y: Type} (t1 t2 : valuation -> option X)
     Some (binop v1 v2)
 .
 
-Definition s_store := partial_map (sym_aexp).
+Definition s_store := partial_map string (sym_aexp).
 Definition path_cond := sym_bexp.
 
 Record sym_state : Type := mkSymState {
