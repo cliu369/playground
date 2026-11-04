@@ -13,9 +13,9 @@ From Stdlib Require Import List. Import ListNotations.
 From Stdlib Require Import Strings.String.
 From Stdlib Require Import Classes.EquivDec.
 
-Require Import maps.
 Require Import tactics.
-Require Import helper.
+Require Import utils.
+Require Import maps.
 
 Module SVL.
 
@@ -673,9 +673,8 @@ Proof.
     HM'' & HWF'' & _). exists st'. eauto.
     unfold sym_cond_add. unfold s2state. simpl. apply HM'.
     apply sym_cond_add_wf; auto. admit.
-  + apply sym_store_add_ok; eauto.
-  + eapply sym_store_add_wf; eauto. 
-
-
+Admitted.
+  (* + apply sym_store_add_ok; eauto. *)
+  (* + eapply sym_store_add_wf; eauto.  *)
 
 End SVL.

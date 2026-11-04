@@ -9,6 +9,7 @@ From Stdlib Require Import List. Import ListNotations.
 From Stdlib Require Import Classes.EquivDec.
 
 Require Import tactics.
+Require Import utils. 
 
 Section total_map. 
   Context {K V : Type} `{EqDec K eq}. 

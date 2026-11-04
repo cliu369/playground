@@ -370,7 +370,7 @@ Proof.
       bdestruct (x =? a).
       * subst. destruct (proj1_sig b =? 1); auto.
       * apply in_cons. unfold assign_ctx. apply in_map_iff. 
-        exists x. split; auto. destruct HIn; intuition. 
+        exists x. split; auto. destruct HIn; intuition auto. 
         symmetry in H1. apply H0 in H1. contradiction.
     + apply lemE with (phi := var a). 
       * apply (HC dtop).

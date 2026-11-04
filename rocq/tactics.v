@@ -32,32 +32,7 @@ Ltac bdestruct X :=
   [eauto with bdestruct | destruct H as [H|H];
   [ | try first [apply not_lt in H | apply not_le in H] ] ].
 
-(* theorems for dealing with equiv_dec in conditionals *)
-
+(* Tactic for utils.v dealing with equiv_dec and conditionals *)
 Ltac solve_eq_dec x y := 
   destruct (equiv_dec x y); intuition auto with *.
 
-Section equiv_dec_lemmas.
-  Context {A B : Type} `{EqDec A eq}.
-
-  Lemma equiv_dec_refl : forall {x : A} {b c : B}, 
-    (if equiv_dec x x then b else c) = b.
-  Proof.
-    intros. solve_eq_dec x x.
-  Qed.
-
-  Lemma equiv_dec_eqb : forall {x y : A} {b c : B},
-    x = y -> 
-    (if equiv_dec x y then b else c) = b.
-  Proof.
-    intros. solve_eq_dec x y.
-  Qed.
-  
-  Lemma equiv_dec_negb : forall {x y : A} {b c : B},
-    x <> y -> 
-    (if equiv_dec x y then b else c) = c.
-  Proof.
-    intros. solve_eq_dec x y.
-  Qed. 
-End equiv_dec_lemmas.
-                
